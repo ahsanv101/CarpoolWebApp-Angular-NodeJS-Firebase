@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { Observable, of, throwError } from 'rxjs';
 import { HttpClient, HttpHeaders, HttpErrorResponse } from '@angular/common/http';
 import { catchError, tap, map } from 'rxjs/operators';
+import {LoginResultModel} from '../../models/LoginResultModel'
 
 const httpOptions = {
   headers: new HttpHeaders({'Content-Type': 'application/json'})
@@ -33,6 +34,13 @@ export class ApiService {
   private extractData(res: Response) {
     let body = res;
     return body || { };
+  }
+
+  login(email: string, password: string): Observable<LoginResultModel>{
+    return this.http.post<LoginResultModel>('https://reqres.in/api/login', {
+      email: email,
+      password: password
+    });
   }
 
   getBooks(): Observable<any> {

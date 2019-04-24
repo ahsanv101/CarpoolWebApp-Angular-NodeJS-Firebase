@@ -11,6 +11,12 @@ import { BookCreateComponent } from './book-create/book-create.component';
 import { BookEditComponent } from './book-edit/book-edit.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
+import {LoginPageModule} from './login-page/login-page.module';
+import {LoginPageComponent} from './login-page/login-page.component';
+import {DashboardPageModule} from './dashboard-page/dashboard-page.module';
+import {DashboardPageComponent} from './dashboard-page/dashboard-page.component';
+import {NeedAuthGuard} from './auth.guard';
+
 import {
   MatInputModule,
   MatPaginatorModule,
@@ -23,6 +29,18 @@ import {
   MatFormFieldModule } from "@angular/material";
 
 const appRoutes: Routes = [
+  {
+    path: 'dashboard',
+    component: DashboardPageComponent,
+    canActivate: [NeedAuthGuard]
+  },
+  {
+    path: 'login',
+    component: LoginPageComponent
+  },
+  { path: '',
+    component: LoginPageComponent
+  },
   {
     path: 'books',
     component: BookComponent,
@@ -42,11 +60,11 @@ const appRoutes: Routes = [
     path: 'book-edit/:id',
     component: BookEditComponent,
     data: { title: 'Edit Book' }
-  },
-  { path: '',
-    redirectTo: '/books',
-    pathMatch: 'full'
   }
+  // { path: '',
+  //   redirectTo: '/books',
+  //   pathMatch: 'full'
+  // }
 ];
 
 @NgModule({
@@ -55,7 +73,9 @@ const appRoutes: Routes = [
     BookComponent,
     BookDetailComponent,
     BookCreateComponent,
-    BookEditComponent
+    BookEditComponent,
+    // LoginPageComponent,
+    // DashboardPageComponent
   ],
   imports: [
     RouterModule.forRoot(appRoutes),
@@ -72,9 +92,13 @@ const appRoutes: Routes = [
     MatIconModule,
     MatButtonModule,
     MatCardModule,
-    MatFormFieldModule
+    MatFormFieldModule,
+    LoginPageModule,
+    DashboardPageModule
   ],
-  providers: [],
+  providers: [
+    NeedAuthGuard
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
