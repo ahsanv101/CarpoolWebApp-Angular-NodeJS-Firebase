@@ -26,7 +26,7 @@
   margin: 10px 0;
   background-color: transparent;
   text-align: center;
-  color:orchid;
+  color:#b28f3c;
   font-weight: bold;
   font-size: 36px;
 }
@@ -37,9 +37,9 @@
   position: absolute;
   left: 25%;
   border-radius: 15px;
-  background-color:indigo;
+  background-color:#540250;
 }
 
 .logo{
-  text-align: center;
+  text-align: left;
 }
