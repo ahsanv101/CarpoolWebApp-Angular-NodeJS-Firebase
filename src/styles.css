@@ -5,4 +5,11 @@ body {
     background-image: url("assets/img/bg.jpg");
     font-family: "Sans Serif"}
 
-
+.Hello{
+    margin: 10px 0;
+    background-color: transparent;
+    text-align: center;
+    color:#b28f3c;
+    font-weight: bold;
+    font-size: 36px;
+    }

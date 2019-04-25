@@ -1,10 +1,14 @@
 <!--<div class="logo"> <img src="../../assets/img/logo.png" alt="Logo here"></div>--><!--Resize--> 
+<div class="Hello">
+  Welcome to HU Carpool
+</div>
+<div class="button-row">
+  <button >Log out</button>
+</div>
 <div class="button-row">
   <a mat-raised-button color="primary" [routerLink]="['/book-create']"><mat-icon>add</mat-icon></a>
 </div>
-<div class="Hello">
-    Welcome to HU Carpool
-  </div>
+
 <div class="Hello">Ride List</div>
 <div class="example-container mat-elevation-z8">
   <table mat-table #table [dataSource]="dataSource">
@@ -33,4 +37,5 @@
     <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
     <tr mat-row *matRowDef="let row; columns: displayedColumns;" [routerLink]="['/book-details/', row._id]"></tr>
   </table>
+  
 </div>
