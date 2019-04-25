@@ -25,7 +25,7 @@ export class LoginPageComponent {
         r => {
           if (r.token) {
             this.customer.setToken(r.token);
-            this.router.navigateByUrl('/dashboard');
+            this.router.navigateByUrl('/books');
           }
         },
         r => {

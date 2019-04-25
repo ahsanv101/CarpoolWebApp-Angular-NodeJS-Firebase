@@ -44,7 +44,8 @@ const appRoutes: Routes = [
   {
     path: 'books',
     component: BookComponent,
-    data: { title: 'Book List' }
+    data: { title: 'Book List' },
+    canActivate: [NeedAuthGuard]
   },
   {
     path: 'book-details/:id',
