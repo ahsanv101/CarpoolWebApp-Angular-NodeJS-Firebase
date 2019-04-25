@@ -41,8 +41,8 @@
 			<form action="/auth" method="POST">
 				<!-- <input type="text" name="email" placeholder="Email ID" required> -->
         <!-- <input type="password" name="password" placeholder="Password" required> -->
-        <input type='text' class='form-control' id='email' placeholder='Email Address' [(ngModel)]="email" required>
-        <input type="password" class='form-control' id="password" placeholder="Password" [(ngModel)]='password' required>
+        <input type='text' class='form-control' name='email' placeholder='Email Address' [(ngModel)]="email" required>
+        <input type="password" class='form-control' name="password" placeholder="Password" [(ngModel)]='password' required>
 				<button type="submit" class='btn btn-primary' (click)='tryLogin()'>Login</button> 
 			</form>
 		</div>
