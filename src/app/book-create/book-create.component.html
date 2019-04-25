@@ -1,10 +1,13 @@
-<!--<div class="logo"> <img src="../../assets/img/logo.png" alt="Logo here"></div>--><!--Resize--> 
+<div class="logo"> <img src="../../assets/img/logo.png" alt="Logo here"></div><!--Resize--> 
 <div class="button-row">
   <a mat-raised-button color="primary" [routerLink]="['/books']"><mat-icon>list</mat-icon></a>
 </div>
 <div class="Hello">
     Welcome to HU Carpool
   </div>
+  <div class="mybutton">
+      <button >Log out</button>
+    </div>
 <form [formGroup]="bookForm" (ngSubmit)="onFormSubmit(bookForm.value)" class="myform">
   <div class="button-row" style="color:antiquewhite"> Let's Ride Together </div>
   <mat-form-field class="example-full-width">
