@@ -13,4 +13,14 @@
 
 .button-row {
   margin: 10px 0;
+  background-color: transparent;
+  text-align: center;
+}
+.Hello{
+  margin: 10px 0;
+  background-color: transparent;
+  text-align: center;
+  color:#b28f3c;
+  font-weight: bold;
+  font-size: 36px;
 }
