@@ -1,4 +1,5 @@
 node_modules
+<<<<<<< HEAD
 .vscode/launch.json
 dist/out-tsc/e2e/src/app.e2e-spec.js
 dist/out-tsc/e2e/src/app.e2e-spec.js.map
@@ -141,3 +142,5 @@ dist/out-tsc/todo-angular-firebase-master/todo-angular-firebase-master/src/polyf
 dist/out-tsc/todo-angular-firebase-master/todo-angular-firebase-master/src/test.js
 dist/out-tsc/todo-angular-firebase-master/todo-angular-firebase-master/src/test.js.map
 package-lock.json
+=======
+>>>>>>> master

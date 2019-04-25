@@ -1,7 +1,12 @@
+<!--<div class="logo"> <img src="../../assets/img/logo.png" alt="Logo here"></div>--><!--Resize--> 
 <div class="button-row">
   <a mat-raised-button color="primary" (click)="bookDetails()"><mat-icon>show</mat-icon></a>
 </div>
-<form [formGroup]="bookForm" (ngSubmit)="onFormSubmit(bookForm.value)">
+<div class="Hello">
+  Welcome to HU Carpool
+</div>
+<form [formGroup]="bookForm" (ngSubmit)="onFormSubmit(bookForm.value)" class="myform">
+  <div class="button-row" style="color:antiquewhite"> Let's Ride Together </div>
   <mat-form-field class="example-full-width">
     <input matInput placeholder="ISBN" formControlName="isbn"
            [errorStateMatcher]="matcher">

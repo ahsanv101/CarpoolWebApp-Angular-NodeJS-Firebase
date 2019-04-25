@@ -2,16 +2,44 @@
   min-width: 150px;
   max-width: 500px;
   width: 100%;
+  background-color: azure;
+  
 }
 
 .example-full-width {
   width: 100%;
+  background-color:whitesmoke;
+  
 }
 
 .example-full-width:nth-last-child() {
   margin-bottom: 10px;
+  background-color: whitesmoke;
 }
 
 .button-row {
   margin: 10px 0;
+  background-color: transparent;
+  text-align: center;
+}
+.Hello{
+  margin: 10px 0;
+  background-color: transparent;
+  text-align: center;
+  color:#b28f3c;
+  font-weight: bold;
+  font-size: 36px;
+}
+
+.myform{
+  width:50%;
+  align-self: center;
+  position: absolute;
+  left: 25%;
+  border-radius: 15px;
+  background-color:#540250;
+}
+
+.logo{
+  text-align: left;
 }
