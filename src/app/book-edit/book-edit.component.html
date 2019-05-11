@@ -8,42 +8,42 @@
 <form [formGroup]="bookForm" (ngSubmit)="onFormSubmit(bookForm.value)" class="myform">
   <div class="button-row" style="color:antiquewhite"> Let's Ride Together </div>
   <mat-form-field class="example-full-width">
-    <input matInput placeholder="ISBN" formControlName="isbn"
+    <input matInput placeholder="Please enter Driver name" formControlName="isbn"
            [errorStateMatcher]="matcher">
     <mat-error>
       <span *ngIf="!bookForm.get('isbn').valid && bookForm.get('isbn').touched">Please enter Driver name</span>
     </mat-error>
   </mat-form-field>
   <mat-form-field class="example-full-width">
-    <input matInput placeholder="Title" formControlName="title"
+    <input matInput placeholder="Please enter Destination" formControlName="title"
            [errorStateMatcher]="matcher">
     <mat-error>
       <span *ngIf="!bookForm.get('title').valid && bookForm.get('title').touched">Please enter Destination</span>
     </mat-error>
   </mat-form-field>
   <mat-form-field class="example-full-width">
-    <input matInput placeholder="Author" formControlName="author"
+    <input matInput placeholder="Please enter Estimated amount" formControlName="author"
            [errorStateMatcher]="matcher">
     <mat-error>
       <span *ngIf="!bookForm.get('author').valid && bookForm.get('author').touched">Please enter Estimated amount</span>
     </mat-error>
   </mat-form-field>
   <mat-form-field class="example-full-width">
-    <textarea matInput placeholder="Description" formControlName="description"
+    <textarea matInput placeholder="Please enter Date of ride" formControlName="description"
            [errorStateMatcher]="matcher"></textarea>
     <mat-error>
       <span *ngIf="!bookForm.get('description').valid && bookForm.get('description').touched">Please enter Date of ride</span>
     </mat-error>
   </mat-form-field>
   <mat-form-field class="example-full-width">
-    <input matInput placeholder="Publisher" formControlName="publisher"
+    <input matInput placeholder="Please enter Time of ride" formControlName="publisher"
            [errorStateMatcher]="matcher">
     <mat-error>
       <span *ngIf="!bookForm.get('publisher').valid && bookForm.get('publisher').touched">Please enter Time of ride</span>
     </mat-error>
   </mat-form-field>
   <mat-form-field class="example-full-width">
-    <input matInput placeholder="Published Year" formControlName="published_year"
+    <input matInput placeholder="Please enter meeting location" formControlName="published_year"
            [errorStateMatcher]="matcher">
     <mat-error>
       <span *ngIf="!bookForm.get('published_year').valid && bookForm.get('published_year').touched">Please enter meeting location</span>
