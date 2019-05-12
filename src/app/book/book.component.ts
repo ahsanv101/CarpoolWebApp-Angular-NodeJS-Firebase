@@ -8,7 +8,7 @@ import { Observable } from 'rxjs';
   templateUrl: './book.component.html',
   styleUrls: ['./book.component.css']
 })
-export class BookComponent implements OnInit {
+export class ShowUserComponent implements OnInit {
 
   books: any;
   displayedColumns = ['isbn', 'title', 'author'];
@@ -25,6 +25,7 @@ export class BookComponent implements OnInit {
         console.log(err);
       });
   }
+
 }
 
 export class BookDataSource extends DataSource<any> {
