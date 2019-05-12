@@ -2,6 +2,7 @@ import { Routes } from '@angular/router';
 
 import { LoginComponent } from './login/login.component';
 import { BookComponent } from './user/user.component';
+import { ShowUserComponent } from './book/book.component';
 import { RegisterComponent } from './register/register.component';
 import { UserResolver } from './user/user.resolver';
 import { AuthGuard } from './core/auth.guard';
@@ -16,7 +17,7 @@ export const rootRouterConfig: Routes = [
   { path: 'user', component: BookComponent,  resolve: { data: UserResolver}},
   {
     path: 'books',
-    component: BookComponent,
+    component: ShowUserComponent,
     data: { title: 'Book List' }
   },
   {

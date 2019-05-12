@@ -6,7 +6,7 @@ import {Observable} from 'rxjs';
 //import 'rxjs/add/operator/toPromise';
 import { AppComponent } from './app.component';
 import { RouterModule, Routes } from '@angular/router';
-//import { BookComponent } from './book/book.component';
+import { ShowUserComponent } from './book/book.component';
 import { BookDetailComponent } from './book-detail/book-detail.component';
 import { BookCreateComponent } from './book-create/book-create.component';
 import { BookEditComponent } from './book-edit/book-edit.component';
@@ -88,7 +88,7 @@ import {
     BookDetailComponent,
     BookCreateComponent,
     BookEditComponent,
-
+    ShowUserComponent
     // LoginPageComponent,
     // DashboardPageComponent
   ],

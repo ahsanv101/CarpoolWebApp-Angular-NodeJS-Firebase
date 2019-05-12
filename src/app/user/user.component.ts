@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ApiService } from '../api.service';
 import { DataSource } from '@angular/cdk/collections';
 import { Observable } from 'rxjs';
+import { Router } from '@angular/router';
 
 import { UserService } from '../core/user.service';
 import { AuthService } from '../core/auth.service';
@@ -30,9 +31,10 @@ export class BookComponent implements OnInit {
     public userService: UserService,
     public authService: AuthService,
     private route: ActivatedRoute,
-    private location : Location,
-    private fb: FormBuilder    
-    ) { }
+    private router: Router,
+    private location: Location,
+    private fb: FormBuilder
+  ) { }
 
   ngOnInit() {
     this.api.getBooks()
@@ -42,31 +44,22 @@ export class BookComponent implements OnInit {
       }, err => {
         console.log(err);
       });
-      
-   
-  
-    }
-
-    
-  
-
-
-
-logout(){
-  this.authService.doLogout()
-  .then((res) => {
-    this.location.back();
-  }, (error) => {
-    console.log("Logout error", error);
-  });
   }
 
-  
+  logout() {
+    this.authService.doLogout()
+      .then((res) => {
+        this.location.back();
+      }, (error) => {
+        console.log("Logout error", error);
+      });
+  }
+
+  showUsers() {
+    this.router.navigate(['/books']);
+  }
+
 }
-
-
-
-
 
 export class BookDataSource extends DataSource<any> {
   constructor(private api: ApiService) {
@@ -81,5 +74,5 @@ export class BookDataSource extends DataSource<any> {
 
   }
 
-  
+
 }
