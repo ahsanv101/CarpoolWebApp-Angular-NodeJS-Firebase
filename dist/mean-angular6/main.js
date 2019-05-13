@@ -83,6 +83,11 @@ var ApiService = /** @class */ (function () {
             password: password
         });
     };
+    ApiService.prototype.getUsers = function () {
+        console.log('in api.service');
+        var url = apiUrl + "/users";
+        return this.http.get(url, httpOptions).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["map"])(this.extractData), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["catchError"])(this.handleError));
+    };
     ApiService.prototype.getBooks = function () {
         return this.http.get(apiUrl, httpOptions).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["map"])(this.extractData), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["catchError"])(this.handleError));
     };
@@ -192,25 +197,26 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm5/http.js");
 /* harmony import */ var _app_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./app.component */ "./src/app/app.component.ts");
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
-/* harmony import */ var _book_detail_book_detail_component__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./book-detail/book-detail.component */ "./src/app/book-detail/book-detail.component.ts");
-/* harmony import */ var _book_create_book_create_component__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./book-create/book-create.component */ "./src/app/book-create/book-create.component.ts");
-/* harmony import */ var _book_edit_book_edit_component__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./book-edit/book-edit.component */ "./src/app/book-edit/book-edit.component.ts");
-/* harmony import */ var _angular_platform_browser_animations__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! @angular/platform-browser/animations */ "./node_modules/@angular/platform-browser/fesm5/animations.js");
-/* harmony import */ var _angular_fire__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! @angular/fire */ "./node_modules/@angular/fire/index.js");
-/* harmony import */ var _angular_fire_firestore__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! @angular/fire/firestore */ "./node_modules/@angular/fire/firestore/index.js");
-/* harmony import */ var _angular_fire_auth__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! @angular/fire/auth */ "./node_modules/@angular/fire/auth/index.js");
-/* harmony import */ var _environments_environment__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ../environments/environment */ "./src/environments/environment.ts");
-/* harmony import */ var _login_page_login_page_module__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./login-page/login-page.module */ "./src/app/login-page/login-page.module.ts");
-/* harmony import */ var _dashboard_page_dashboard_page_module__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./dashboard-page/dashboard-page.module */ "./src/app/dashboard-page/dashboard-page.module.ts");
-/* harmony import */ var _login_login_component__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./login/login.component */ "./src/app/login/login.component.ts");
-/* harmony import */ var _user_user_component__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ./user/user.component */ "./src/app/user/user.component.ts");
-/* harmony import */ var _register_register_component__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ./register/register.component */ "./src/app/register/register.component.ts");
-/* harmony import */ var _app_routes__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! ./app.routes */ "./src/app/app.routes.ts");
-/* harmony import */ var _user_user_resolver__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! ./user/user.resolver */ "./src/app/user/user.resolver.ts");
-/* harmony import */ var _core_auth_guard__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(/*! ./core/auth.guard */ "./src/app/core/auth.guard.ts");
-/* harmony import */ var _core_auth_service__WEBPACK_IMPORTED_MODULE_22__ = __webpack_require__(/*! ./core/auth.service */ "./src/app/core/auth.service.ts");
-/* harmony import */ var _core_user_service__WEBPACK_IMPORTED_MODULE_23__ = __webpack_require__(/*! ./core/user.service */ "./src/app/core/user.service.ts");
-/* harmony import */ var _angular_material__WEBPACK_IMPORTED_MODULE_24__ = __webpack_require__(/*! @angular/material */ "./node_modules/@angular/material/esm5/material.es5.js");
+/* harmony import */ var _book_book_component__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./book/book.component */ "./src/app/book/book.component.ts");
+/* harmony import */ var _book_detail_book_detail_component__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./book-detail/book-detail.component */ "./src/app/book-detail/book-detail.component.ts");
+/* harmony import */ var _book_create_book_create_component__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./book-create/book-create.component */ "./src/app/book-create/book-create.component.ts");
+/* harmony import */ var _book_edit_book_edit_component__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./book-edit/book-edit.component */ "./src/app/book-edit/book-edit.component.ts");
+/* harmony import */ var _angular_platform_browser_animations__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! @angular/platform-browser/animations */ "./node_modules/@angular/platform-browser/fesm5/animations.js");
+/* harmony import */ var _angular_fire__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! @angular/fire */ "./node_modules/@angular/fire/index.js");
+/* harmony import */ var _angular_fire_firestore__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! @angular/fire/firestore */ "./node_modules/@angular/fire/firestore/index.js");
+/* harmony import */ var _angular_fire_auth__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! @angular/fire/auth */ "./node_modules/@angular/fire/auth/index.js");
+/* harmony import */ var _environments_environment__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ../environments/environment */ "./src/environments/environment.ts");
+/* harmony import */ var _login_page_login_page_module__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./login-page/login-page.module */ "./src/app/login-page/login-page.module.ts");
+/* harmony import */ var _dashboard_page_dashboard_page_module__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./dashboard-page/dashboard-page.module */ "./src/app/dashboard-page/dashboard-page.module.ts");
+/* harmony import */ var _login_login_component__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ./login/login.component */ "./src/app/login/login.component.ts");
+/* harmony import */ var _user_user_component__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ./user/user.component */ "./src/app/user/user.component.ts");
+/* harmony import */ var _register_register_component__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! ./register/register.component */ "./src/app/register/register.component.ts");
+/* harmony import */ var _app_routes__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! ./app.routes */ "./src/app/app.routes.ts");
+/* harmony import */ var _user_user_resolver__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(/*! ./user/user.resolver */ "./src/app/user/user.resolver.ts");
+/* harmony import */ var _core_auth_guard__WEBPACK_IMPORTED_MODULE_22__ = __webpack_require__(/*! ./core/auth.guard */ "./src/app/core/auth.guard.ts");
+/* harmony import */ var _core_auth_service__WEBPACK_IMPORTED_MODULE_23__ = __webpack_require__(/*! ./core/auth.service */ "./src/app/core/auth.service.ts");
+/* harmony import */ var _core_user_service__WEBPACK_IMPORTED_MODULE_24__ = __webpack_require__(/*! ./core/user.service */ "./src/app/core/user.service.ts");
+/* harmony import */ var _angular_material__WEBPACK_IMPORTED_MODULE_25__ = __webpack_require__(/*! @angular/material */ "./node_modules/@angular/material/esm5/material.es5.js");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -224,7 +230,7 @@ var __decorate = (undefined && undefined.__decorate) || function (decorators, ta
 //import 'rxjs/add/operator/toPromise';
 
 
-//import { BookComponent } from './book/book.component';
+
 
 
 
@@ -276,41 +282,44 @@ var AppModule = /** @class */ (function () {
     AppModule = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
             declarations: [
-                _login_login_component__WEBPACK_IMPORTED_MODULE_16__["LoginComponent"],
-                _user_user_component__WEBPACK_IMPORTED_MODULE_17__["BookComponent"],
-                _register_register_component__WEBPACK_IMPORTED_MODULE_18__["RegisterComponent"],
+                _login_login_component__WEBPACK_IMPORTED_MODULE_17__["LoginComponent"],
+                _user_user_component__WEBPACK_IMPORTED_MODULE_18__["BookComponent"],
+                _register_register_component__WEBPACK_IMPORTED_MODULE_19__["RegisterComponent"],
                 _app_component__WEBPACK_IMPORTED_MODULE_4__["AppComponent"],
-                _user_user_component__WEBPACK_IMPORTED_MODULE_17__["BookComponent"],
-                _book_detail_book_detail_component__WEBPACK_IMPORTED_MODULE_6__["BookDetailComponent"],
-                _book_create_book_create_component__WEBPACK_IMPORTED_MODULE_7__["BookCreateComponent"],
-                _book_edit_book_edit_component__WEBPACK_IMPORTED_MODULE_8__["BookEditComponent"],
+                _user_user_component__WEBPACK_IMPORTED_MODULE_18__["BookComponent"],
+                _book_detail_book_detail_component__WEBPACK_IMPORTED_MODULE_7__["BookDetailComponent"],
+                _book_create_book_create_component__WEBPACK_IMPORTED_MODULE_8__["BookCreateComponent"],
+                _book_edit_book_edit_component__WEBPACK_IMPORTED_MODULE_9__["BookEditComponent"],
+                _book_book_component__WEBPACK_IMPORTED_MODULE_6__["ShowUserComponent"]
+                // LoginPageComponent,
+                // DashboardPageComponent
             ],
             imports: [
                 _angular_platform_browser__WEBPACK_IMPORTED_MODULE_0__["BrowserModule"],
                 _angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormsModule"],
                 _angular_forms__WEBPACK_IMPORTED_MODULE_2__["ReactiveFormsModule"],
                 _angular_common_http__WEBPACK_IMPORTED_MODULE_3__["HttpClientModule"],
-                _angular_platform_browser_animations__WEBPACK_IMPORTED_MODULE_9__["BrowserAnimationsModule"],
-                _angular_material__WEBPACK_IMPORTED_MODULE_24__["MatInputModule"],
-                _angular_material__WEBPACK_IMPORTED_MODULE_24__["MatTableModule"],
-                _angular_material__WEBPACK_IMPORTED_MODULE_24__["MatPaginatorModule"],
-                _angular_material__WEBPACK_IMPORTED_MODULE_24__["MatSortModule"],
-                _angular_material__WEBPACK_IMPORTED_MODULE_24__["MatProgressSpinnerModule"],
-                _angular_material__WEBPACK_IMPORTED_MODULE_24__["MatIconModule"],
-                _angular_material__WEBPACK_IMPORTED_MODULE_24__["MatButtonModule"],
-                _angular_material__WEBPACK_IMPORTED_MODULE_24__["MatCardModule"],
-                _angular_material__WEBPACK_IMPORTED_MODULE_24__["MatFormFieldModule"],
-                _login_page_login_page_module__WEBPACK_IMPORTED_MODULE_14__["LoginPageModule"],
-                _dashboard_page_dashboard_page_module__WEBPACK_IMPORTED_MODULE_15__["DashboardPageModule"],
+                _angular_platform_browser_animations__WEBPACK_IMPORTED_MODULE_10__["BrowserAnimationsModule"],
+                _angular_material__WEBPACK_IMPORTED_MODULE_25__["MatInputModule"],
+                _angular_material__WEBPACK_IMPORTED_MODULE_25__["MatTableModule"],
+                _angular_material__WEBPACK_IMPORTED_MODULE_25__["MatPaginatorModule"],
+                _angular_material__WEBPACK_IMPORTED_MODULE_25__["MatSortModule"],
+                _angular_material__WEBPACK_IMPORTED_MODULE_25__["MatProgressSpinnerModule"],
+                _angular_material__WEBPACK_IMPORTED_MODULE_25__["MatIconModule"],
+                _angular_material__WEBPACK_IMPORTED_MODULE_25__["MatButtonModule"],
+                _angular_material__WEBPACK_IMPORTED_MODULE_25__["MatCardModule"],
+                _angular_material__WEBPACK_IMPORTED_MODULE_25__["MatFormFieldModule"],
+                _login_page_login_page_module__WEBPACK_IMPORTED_MODULE_15__["LoginPageModule"],
+                _dashboard_page_dashboard_page_module__WEBPACK_IMPORTED_MODULE_16__["DashboardPageModule"],
                 _angular_platform_browser__WEBPACK_IMPORTED_MODULE_0__["BrowserModule"],
                 _angular_forms__WEBPACK_IMPORTED_MODULE_2__["ReactiveFormsModule"],
-                _angular_router__WEBPACK_IMPORTED_MODULE_5__["RouterModule"].forRoot(_app_routes__WEBPACK_IMPORTED_MODULE_19__["rootRouterConfig"], { useHash: false }),
-                _angular_fire__WEBPACK_IMPORTED_MODULE_10__["AngularFireModule"].initializeApp(_environments_environment__WEBPACK_IMPORTED_MODULE_13__["environment"].firebase),
-                _angular_fire_firestore__WEBPACK_IMPORTED_MODULE_11__["AngularFirestoreModule"],
-                _angular_fire_auth__WEBPACK_IMPORTED_MODULE_12__["AngularFireAuthModule"] // imports firebase/auth, only needed for auth features
+                _angular_router__WEBPACK_IMPORTED_MODULE_5__["RouterModule"].forRoot(_app_routes__WEBPACK_IMPORTED_MODULE_20__["rootRouterConfig"], { useHash: false }),
+                _angular_fire__WEBPACK_IMPORTED_MODULE_11__["AngularFireModule"].initializeApp(_environments_environment__WEBPACK_IMPORTED_MODULE_14__["environment"].firebase),
+                _angular_fire_firestore__WEBPACK_IMPORTED_MODULE_12__["AngularFirestoreModule"],
+                _angular_fire_auth__WEBPACK_IMPORTED_MODULE_13__["AngularFireAuthModule"] // imports firebase/auth, only needed for auth features
             ],
             providers: [
-                _core_auth_service__WEBPACK_IMPORTED_MODULE_22__["AuthService"], _core_user_service__WEBPACK_IMPORTED_MODULE_23__["UserService"], _user_user_resolver__WEBPACK_IMPORTED_MODULE_20__["UserResolver"], _core_auth_guard__WEBPACK_IMPORTED_MODULE_21__["AuthGuard"]
+                _core_auth_service__WEBPACK_IMPORTED_MODULE_23__["AuthService"], _core_user_service__WEBPACK_IMPORTED_MODULE_24__["UserService"], _user_user_resolver__WEBPACK_IMPORTED_MODULE_21__["UserResolver"], _core_auth_guard__WEBPACK_IMPORTED_MODULE_22__["AuthGuard"]
             ],
             bootstrap: [_app_component__WEBPACK_IMPORTED_MODULE_4__["AppComponent"]]
         })
@@ -334,12 +343,14 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "rootRouterConfig", function() { return rootRouterConfig; });
 /* harmony import */ var _login_login_component__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./login/login.component */ "./src/app/login/login.component.ts");
 /* harmony import */ var _user_user_component__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./user/user.component */ "./src/app/user/user.component.ts");
-/* harmony import */ var _register_register_component__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./register/register.component */ "./src/app/register/register.component.ts");
-/* harmony import */ var _user_user_resolver__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./user/user.resolver */ "./src/app/user/user.resolver.ts");
-/* harmony import */ var _core_auth_guard__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./core/auth.guard */ "./src/app/core/auth.guard.ts");
-/* harmony import */ var _book_detail_book_detail_component__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./book-detail/book-detail.component */ "./src/app/book-detail/book-detail.component.ts");
-/* harmony import */ var _book_create_book_create_component__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./book-create/book-create.component */ "./src/app/book-create/book-create.component.ts");
-/* harmony import */ var _book_edit_book_edit_component__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./book-edit/book-edit.component */ "./src/app/book-edit/book-edit.component.ts");
+/* harmony import */ var _book_book_component__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./book/book.component */ "./src/app/book/book.component.ts");
+/* harmony import */ var _register_register_component__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./register/register.component */ "./src/app/register/register.component.ts");
+/* harmony import */ var _user_user_resolver__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./user/user.resolver */ "./src/app/user/user.resolver.ts");
+/* harmony import */ var _core_auth_guard__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./core/auth.guard */ "./src/app/core/auth.guard.ts");
+/* harmony import */ var _book_detail_book_detail_component__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./book-detail/book-detail.component */ "./src/app/book-detail/book-detail.component.ts");
+/* harmony import */ var _book_create_book_create_component__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./book-create/book-create.component */ "./src/app/book-create/book-create.component.ts");
+/* harmony import */ var _book_edit_book_edit_component__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./book-edit/book-edit.component */ "./src/app/book-edit/book-edit.component.ts");
+
 
 
 
@@ -350,27 +361,27 @@ __webpack_require__.r(__webpack_exports__);
 
 var rootRouterConfig = [
     { path: '', redirectTo: 'login', pathMatch: 'full' },
-    { path: 'login', component: _login_login_component__WEBPACK_IMPORTED_MODULE_0__["LoginComponent"], canActivate: [_core_auth_guard__WEBPACK_IMPORTED_MODULE_4__["AuthGuard"]] },
-    { path: 'register', component: _register_register_component__WEBPACK_IMPORTED_MODULE_2__["RegisterComponent"], canActivate: [_core_auth_guard__WEBPACK_IMPORTED_MODULE_4__["AuthGuard"]] },
-    { path: 'user', component: _user_user_component__WEBPACK_IMPORTED_MODULE_1__["BookComponent"], resolve: { data: _user_user_resolver__WEBPACK_IMPORTED_MODULE_3__["UserResolver"] } },
+    { path: 'login', component: _login_login_component__WEBPACK_IMPORTED_MODULE_0__["LoginComponent"], canActivate: [_core_auth_guard__WEBPACK_IMPORTED_MODULE_5__["AuthGuard"]] },
+    { path: 'register', component: _register_register_component__WEBPACK_IMPORTED_MODULE_3__["RegisterComponent"], canActivate: [_core_auth_guard__WEBPACK_IMPORTED_MODULE_5__["AuthGuard"]] },
+    { path: 'user', component: _user_user_component__WEBPACK_IMPORTED_MODULE_1__["BookComponent"], resolve: { data: _user_user_resolver__WEBPACK_IMPORTED_MODULE_4__["UserResolver"] } },
     {
         path: 'books',
-        component: _user_user_component__WEBPACK_IMPORTED_MODULE_1__["BookComponent"],
+        component: _book_book_component__WEBPACK_IMPORTED_MODULE_2__["ShowUserComponent"],
         data: { title: 'Book List' }
     },
     {
         path: 'book-details/:id',
-        component: _book_detail_book_detail_component__WEBPACK_IMPORTED_MODULE_5__["BookDetailComponent"],
+        component: _book_detail_book_detail_component__WEBPACK_IMPORTED_MODULE_6__["BookDetailComponent"],
         data: { title: 'Book Details' }
     },
     {
         path: 'book-create',
-        component: _book_create_book_create_component__WEBPACK_IMPORTED_MODULE_6__["BookCreateComponent"],
+        component: _book_create_book_create_component__WEBPACK_IMPORTED_MODULE_7__["BookCreateComponent"],
         data: { title: 'Create Book' }
     },
     {
         path: 'book-edit/:id',
-        component: _book_edit_book_edit_component__WEBPACK_IMPORTED_MODULE_7__["BookEditComponent"],
+        component: _book_edit_book_edit_component__WEBPACK_IMPORTED_MODULE_8__["BookEditComponent"],
         data: { title: 'Edit Book' }
     }
     // { path: '',
@@ -400,7 +411,7 @@ module.exports = ".example-form {\r\n  min-width: 150px;\r\n  max-width: 500px;\
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"logo\"> <img src=\"../../assets/img/logo.png\" alt=\"Logo here\"></div><!--Resize--> \r\n<div class=\"button-row\">\r\n  <a mat-raised-button color=\"primary\" [routerLink]=\"['/user']\"><mat-icon>list</mat-icon></a>\r\n</div>\r\n<div class=\"Hello\">\r\n    Welcome to HU Carpool\r\n  </div>\r\n  <div class=\"mybutton\">\r\n      <button >Log out</button>\r\n    </div>\r\n<form [formGroup]=\"bookForm\" (ngSubmit)=\"onFormSubmit(bookForm.value)\" class=\"myform\">\r\n  <div class=\"button-row\" style=\"color:antiquewhite\"> Let's Ride Together </div>\r\n  <mat-form-field class=\"example-full-width\">\r\n    <input matInput placeholder=\"Driver name\" formControlName=\"isbn\"\r\n           [errorStateMatcher]=\"matcher\">\r\n    <mat-error>\r\n      <span *ngIf=\"!bookForm.get('isbn').valid && bookForm.get('isbn').touched\">  Please enter Driver name</span>\r\n    </mat-error>\r\n  </mat-form-field>\r\n  <mat-form-field class=\"example-full-width\">\r\n    <input matInput placeholder=\"Destination\" formControlName=\"title\"\r\n           [errorStateMatcher]=\"matcher\">\r\n    <mat-error>\r\n      <span *ngIf=\"!bookForm.get('title').valid && bookForm.get('title').touched\">Please enter Destination</span>\r\n    </mat-error>\r\n  </mat-form-field>\r\n  <mat-form-field class=\"example-full-width\">\r\n    <input matInput placeholder=\"Estimated amount\" formControlName=\"author\"\r\n           [errorStateMatcher]=\"matcher\">\r\n    <mat-error>\r\n      <span *ngIf=\"!bookForm.get('author').valid && bookForm.get('author').touched\">Please enter Estimated amount</span>\r\n    </mat-error>\r\n  </mat-form-field>\r\n  <mat-form-field class=\"example-full-width\">\r\n    <textarea matInput placeholder=\"Date of ride\" formControlName=\"description\"\r\n           [errorStateMatcher]=\"matcher\"></textarea>\r\n    <mat-error>\r\n      <span *ngIf=\"!bookForm.get('description').valid && bookForm.get('description').touched\">Please enter Date of ride</span>\r\n    </mat-error>\r\n  </mat-form-field>\r\n  <mat-form-field class=\"example-full-width\">\r\n    <input matInput placeholder=\"Time of ride\" formControlName=\"publisher\"\r\n           [errorStateMatcher]=\"matcher\">\r\n    <mat-error>\r\n      <span *ngIf=\"!bookForm.get('publisher').valid && bookForm.get('publisher').touched\">Please enter Time of ride</span>\r\n    </mat-error>\r\n  </mat-form-field>\r\n  <mat-form-field class=\"example-full-width\">\r\n    <input matInput placeholder=\"Meeting location\" formControlName=\"published_year\"\r\n           [errorStateMatcher]=\"matcher\">\r\n    <mat-error>\r\n      <span *ngIf=\"!bookForm.get('published_year').valid && bookForm.get('published_year').touched\">Please enter meeting location</span>\r\n    </mat-error>\r\n  </mat-form-field>\r\n  <div class=\"button-row\">\r\n    <button type=\"submit\" [disabled]=\"!bookForm.valid\" mat-raised-button color=\"primary\"><mat-icon>save</mat-icon></button>\r\n  </div>\r\n</form>\r\n"
+module.exports = "<div class=\"logo\"> <img src=\"../../assets/img/logo.png\" alt=\"Logo here\"></div><!--Resize--> \r\n<div class=\"button-row\">\r\n  <a mat-raised-button color=\"primary\" [routerLink]=\"['/user']\"><mat-icon>list</mat-icon></a>\r\n</div>\r\n<div class=\"Hello\">\r\n    Welcome to HU Carpool\r\n  </div>\r\n<form [formGroup]=\"bookForm\" (ngSubmit)=\"onFormSubmit(bookForm.value)\" class=\"form-3\">\r\n  <div class=\"button-row\" style=\"color:antiquewhite\"> Let's Ride Together </div>\r\n  <mat-form-field class=\"example-full-width\">\r\n    <input matInput placeholder=\"Driver name\" formControlName=\"driver\"\r\n           [errorStateMatcher]=\"matcher\">\r\n    <mat-error>\r\n      <span *ngIf=\"!bookForm.get('driver').valid && bookForm.get('driver').touched\">  Please enter Driver name</span>\r\n    </mat-error>\r\n  </mat-form-field>\r\n  <mat-form-field class=\"example-full-width\">\r\n    <input matInput placeholder=\"Destination\" formControlName=\"destination\"\r\n           [errorStateMatcher]=\"matcher\">\r\n    <mat-error>\r\n      <span *ngIf=\"!bookForm.get('destination').valid && bookForm.get('destination').touched\">Please enter Destination</span>\r\n    </mat-error>\r\n  </mat-form-field>\r\n  <mat-form-field class=\"example-full-width\">\r\n    <input matInput placeholder=\"Estimated amount\" formControlName=\"amount\"\r\n           [errorStateMatcher]=\"matcher\">\r\n    <mat-error>\r\n      <span *ngIf=\"!bookForm.get('amount').valid && bookForm.get('amount').touched\">Please enter Estimated amount</span>\r\n    </mat-error>\r\n  </mat-form-field>\r\n  <mat-form-field class=\"example-full-width\">\r\n    <textarea matInput placeholder=\"Date of ride\" formControlName=\"description\"\r\n           [errorStateMatcher]=\"matcher\"></textarea>\r\n    <mat-error>\r\n      <span *ngIf=\"!bookForm.get('description').valid && bookForm.get('description').touched\">Please enter Date of ride</span>\r\n    </mat-error>\r\n  </mat-form-field>\r\n  <mat-form-field class=\"example-full-width\">\r\n    <input matInput placeholder=\"Time of ride\" formControlName=\"time\"\r\n           [errorStateMatcher]=\"matcher\">\r\n    <mat-error>\r\n      <span *ngIf=\"!bookForm.get('time').valid && bookForm.get('time').touched\">Please enter Time of ride</span>\r\n    </mat-error>\r\n  </mat-form-field>\r\n  <mat-form-field class=\"example-full-width\">\r\n    <input matInput placeholder=\"Meeting location\" formControlName=\"meeting\"\r\n           [errorStateMatcher]=\"matcher\">\r\n    <mat-error>\r\n      <span *ngIf=\"!bookForm.get('meeting').valid && bookForm.get('meeting').touched\">Please enter meeting location</span>\r\n    </mat-error>\r\n  </mat-form-field>\r\n  <div class=\"button-row\">\r\n    <button type=\"submit\" [disabled]=\"!bookForm.valid\" mat-raised-button color=\"primary\"><mat-icon>save</mat-icon></button>\r\n  </div>\r\n</form>\r\n"
 
 /***/ }),
 
@@ -436,21 +447,21 @@ var BookCreateComponent = /** @class */ (function () {
         this.router = router;
         this.api = api;
         this.formBuilder = formBuilder;
-        this.isbn = '';
-        this.title = '';
+        this.driver = '';
+        this.destination = '';
         this.description = '';
-        this.author = '';
-        this.publisher = '';
-        this.published_year = '';
+        this.amount = '';
+        this.time = '';
+        this.meeting = '';
     }
     BookCreateComponent.prototype.ngOnInit = function () {
         this.bookForm = this.formBuilder.group({
-            'isbn': [null, _angular_forms__WEBPACK_IMPORTED_MODULE_3__["Validators"].required],
-            'title': [null, _angular_forms__WEBPACK_IMPORTED_MODULE_3__["Validators"].required],
+            'driver': [null, _angular_forms__WEBPACK_IMPORTED_MODULE_3__["Validators"].required],
+            'destination': [null, _angular_forms__WEBPACK_IMPORTED_MODULE_3__["Validators"].required],
             'description': [null, _angular_forms__WEBPACK_IMPORTED_MODULE_3__["Validators"].required],
-            'author': [null, _angular_forms__WEBPACK_IMPORTED_MODULE_3__["Validators"].required],
-            'publisher': [null, _angular_forms__WEBPACK_IMPORTED_MODULE_3__["Validators"].required],
-            'published_year': [null, _angular_forms__WEBPACK_IMPORTED_MODULE_3__["Validators"].required]
+            'amount': [null, _angular_forms__WEBPACK_IMPORTED_MODULE_3__["Validators"].required],
+            'time': [null, _angular_forms__WEBPACK_IMPORTED_MODULE_3__["Validators"].required],
+            'meeting': [null, _angular_forms__WEBPACK_IMPORTED_MODULE_3__["Validators"].required]
         });
     };
     BookCreateComponent.prototype.onFormSubmit = function (form) {
@@ -496,7 +507,7 @@ module.exports = ".example-card {\r\n  max-width: 500px;\r\n}\r\n\r\n.button-row
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"logo\"> <img src=\"../../assets/img/logo.png\" alt=\"Logo here\"></div><!--Resize--> \r\n<div class=\"Hello\">Ride Details</div>\r\n<div class=\"button-row\">\r\n  <a mat-raised-button color=\"primary\" [routerLink]=\"['/user']\"><mat-icon>list</mat-icon></a>\r\n</div>\r\n<mat-card class=\"example-card\">\r\n  <mat-card-header>\r\n    <mat-card-title><h2>{{book.isbn}}</h2></mat-card-title>\r\n    <mat-card-subtitle>{{book.title}}</mat-card-subtitle>\r\n  </mat-card-header>\r\n  <mat-card-content>\r\n    <dl>\r\n      <dt>Estimated amount:</dt>\r\n      <dd>{{book.author}}</dd>\r\n      <dt>Date of ride:</dt>\r\n      <dd>{{book.description}}</dd>\r\n      <dt>Time of ride:</dt>\r\n      <dd>{{book.publisher}}</dd>\r\n      <dt>Meeting location:</dt>\r\n      <dd>{{book.published_year}}</dd>\r\n      <dt>Update Date:</dt>\r\n      <dd>{{book.updated_date | date}}</dd>\r\n    </dl>\r\n  </mat-card-content>\r\n  <mat-card-actions>\r\n    <a mat-raised-button color=\"primary\" [routerLink]=\"['/book-edit', book._id]\"><mat-icon>edit</mat-icon></a>\r\n    <a mat-raised-button color=\"warn\" (click)=\"deleteBook(book._id)\"><mat-icon>delete</mat-icon></a>\r\n  </mat-card-actions>\r\n</mat-card>\r\n"
+module.exports = "<div class=\"logo\"> <img src=\"../../assets/img/logo.png\" alt=\"Logo here\"></div><!--Resize--> \r\n<div class=\"Hello\">Ride Details</div>\r\n<div class=\"button-row\">\r\n  <a mat-raised-button color=\"primary\" [routerLink]=\"['/user']\"><mat-icon>list</mat-icon></a>\r\n</div>\r\n<mat-card class=\"example-card\">\r\n  <mat-card-header>\r\n    <mat-card-title><h2>{{book.driver}}</h2></mat-card-title>\r\n    <mat-card-subtitle>{{book.destination}}</mat-card-subtitle>\r\n  </mat-card-header>\r\n  <mat-card-content>\r\n    <dl>\r\n      <dt>Estimated amount:</dt>\r\n      <dd>{{book.amount}}</dd>\r\n      <dt>Date of ride:</dt>\r\n      <dd>{{book.description}}</dd>\r\n      <dt>Time of ride:</dt>\r\n      <dd>{{book.time}}</dd>\r\n      <dt>Meeting location:</dt>\r\n      <dd>{{book.meeting}}</dd>\r\n      <dt>Update Date:</dt>\r\n      <dd>{{book.updated_date | date}}</dd>\r\n    </dl>\r\n  </mat-card-content>\r\n  <mat-card-actions>\r\n    <a mat-raised-button color=\"primary\" [routerLink]=\"['/book-edit', book._id]\"><mat-icon>edit</mat-icon></a>\r\n    <a mat-raised-button color=\"warn\" (click)=\"deleteBook(book._id)\"><mat-icon>delete</mat-icon></a>\r\n  </mat-card-actions>\r\n</mat-card>\r\n"
 
 /***/ }),
 
@@ -585,7 +596,7 @@ module.exports = ".example-form {\r\n  min-width: 150px;\r\n  max-width: 500px;\
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"logo\"> <img src=\"../../assets/img/logo.png\" alt=\"Logo here\"></div><!--Resize--> \r\n<div class=\"button-row\">\r\n  <a mat-raised-button color=\"primary\" (click)=\"bookDetails()\"><mat-icon>show</mat-icon></a>\r\n</div>\r\n<div class=\"Hello\">\r\n  Welcome to HU Carpool\r\n</div>\r\n<form [formGroup]=\"bookForm\" (ngSubmit)=\"onFormSubmit(bookForm.value)\" class=\"myform\">\r\n  <div class=\"button-row\" style=\"color:antiquewhite\"> Let's Ride Together </div>\r\n  <mat-form-field class=\"example-full-width\">\r\n    <input matInput placeholder=\"Please enter Driver name\" formControlName=\"isbn\"\r\n           [errorStateMatcher]=\"matcher\">\r\n    <mat-error>\r\n      <span *ngIf=\"!bookForm.get('isbn').valid && bookForm.get('isbn').touched\">Please enter Driver name</span>\r\n    </mat-error>\r\n  </mat-form-field>\r\n  <mat-form-field class=\"example-full-width\">\r\n    <input matInput placeholder=\"Please enter Destination\" formControlName=\"title\"\r\n           [errorStateMatcher]=\"matcher\">\r\n    <mat-error>\r\n      <span *ngIf=\"!bookForm.get('title').valid && bookForm.get('title').touched\">Please enter Destination</span>\r\n    </mat-error>\r\n  </mat-form-field>\r\n  <mat-form-field class=\"example-full-width\">\r\n    <input matInput placeholder=\"Please enter Estimated amount\" formControlName=\"author\"\r\n           [errorStateMatcher]=\"matcher\">\r\n    <mat-error>\r\n      <span *ngIf=\"!bookForm.get('author').valid && bookForm.get('author').touched\">Please enter Estimated amount</span>\r\n    </mat-error>\r\n  </mat-form-field>\r\n  <mat-form-field class=\"example-full-width\">\r\n    <textarea matInput placeholder=\"Please enter Date of ride\" formControlName=\"description\"\r\n           [errorStateMatcher]=\"matcher\"></textarea>\r\n    <mat-error>\r\n      <span *ngIf=\"!bookForm.get('description').valid && bookForm.get('description').touched\">Please enter Date of ride</span>\r\n    </mat-error>\r\n  </mat-form-field>\r\n  <mat-form-field class=\"example-full-width\">\r\n    <input matInput placeholder=\"Please enter Time of ride\" formControlName=\"publisher\"\r\n           [errorStateMatcher]=\"matcher\">\r\n    <mat-error>\r\n      <span *ngIf=\"!bookForm.get('publisher').valid && bookForm.get('publisher').touched\">Please enter Time of ride</span>\r\n    </mat-error>\r\n  </mat-form-field>\r\n  <mat-form-field class=\"example-full-width\">\r\n    <input matInput placeholder=\"Please enter meeting location\" formControlName=\"published_year\"\r\n           [errorStateMatcher]=\"matcher\">\r\n    <mat-error>\r\n      <span *ngIf=\"!bookForm.get('published_year').valid && bookForm.get('published_year').touched\">Please enter meeting location</span>\r\n    </mat-error>\r\n  </mat-form-field>\r\n  <div class=\"button-row\">\r\n    <button type=\"submit\" [disabled]=\"!bookForm.valid\" mat-raised-button color=\"primary\"><mat-icon>save</mat-icon></button>\r\n  </div>\r\n</form>\r\n"
+module.exports = "<div class=\"logo\"> <img src=\"../../assets/img/logo.png\" alt=\"Logo here\"></div><!--Resize--> \r\n<div class=\"button-row\">\r\n  <a mat-raised-button color=\"primary\" (click)=\"bookDetails()\"><mat-icon>show</mat-icon></a>\r\n</div>\r\n<div class=\"Hello\">\r\n  Welcome to HU Carpool\r\n</div>\r\n<form [formGroup]=\"bookForm\" (ngSubmit)=\"onFormSubmit(bookForm.value)\" class=\"form-3\">\r\n  <div class=\"button-row\" style=\"color:antiquewhite\"> Let's Ride Together </div>\r\n  <mat-form-field class=\"example-full-width\">\r\n    <input matInput placeholder=\"Please enter Driver name\" formControlName=\"driver\"\r\n           [errorStateMatcher]=\"matcher\">\r\n    <mat-error>\r\n      <span *ngIf=\"!bookForm.get('driver').valid && bookForm.get('driver').touched\">Please enter Driver name</span>\r\n    </mat-error>\r\n  </mat-form-field>\r\n  <mat-form-field class=\"example-full-width\">\r\n    <input matInput placeholder=\"Please enter Destination\" formControlName=\"destination\"\r\n           [errorStateMatcher]=\"matcher\">\r\n    <mat-error>\r\n      <span *ngIf=\"!bookForm.get('destination').valid && bookForm.get('destination').touched\">Please enter Destination</span>\r\n    </mat-error>\r\n  </mat-form-field>\r\n  <mat-form-field class=\"example-full-width\">\r\n    <input matInput placeholder=\"Please enter Estimated amount\" formControlName=\"amount\"\r\n           [errorStateMatcher]=\"matcher\">\r\n    <mat-error>\r\n      <span *ngIf=\"!bookForm.get('amount').valid && bookForm.get('amount').touched\">Please enter Estimated amount</span>\r\n    </mat-error>\r\n  </mat-form-field>\r\n  <mat-form-field class=\"example-full-width\">\r\n    <textarea matInput placeholder=\"Please enter Date of ride\" formControlName=\"description\"\r\n           [errorStateMatcher]=\"matcher\"></textarea>\r\n    <mat-error>\r\n      <span *ngIf=\"!bookForm.get('description').valid && bookForm.get('description').touched\">Please enter Date of ride</span>\r\n    </mat-error>\r\n  </mat-form-field>\r\n  <mat-form-field class=\"example-full-width\">\r\n    <input matInput placeholder=\"Please enter Time of ride\" formControlName=\"time\"\r\n           [errorStateMatcher]=\"matcher\">\r\n    <mat-error>\r\n      <span *ngIf=\"!bookForm.get('time').valid && bookForm.get('time').touched\">Please enter Time of ride</span>\r\n    </mat-error>\r\n  </mat-form-field>\r\n  <mat-form-field class=\"example-full-width\">\r\n    <input matInput placeholder=\"Please enter meeting location\" formControlName=\"meeting\"\r\n           [errorStateMatcher]=\"matcher\">\r\n    <mat-error>\r\n      <span *ngIf=\"!bookForm.get('meeting').valid && bookForm.get('meeting').touched\">Please enter meeting location</span>\r\n    </mat-error>\r\n  </mat-form-field>\r\n  <div class=\"button-row\">\r\n    <button type=\"submit\" [disabled]=\"!bookForm.valid\" mat-raised-button color=\"primary\"><mat-icon>save</mat-icon></button>\r\n  </div>\r\n</form>\r\n"
 
 /***/ }),
 
@@ -622,42 +633,41 @@ var BookEditComponent = /** @class */ (function () {
         this.route = route;
         this.api = api;
         this.formBuilder = formBuilder;
-        this.id = '';
-        this.isbn = '';
-        this.title = '';
+        this.driver = '';
+        this.destination = '';
         this.description = '';
-        this.author = '';
-        this.publisher = '';
-        this.published_year = '';
+        this.amount = '';
+        this.time = '';
+        this.meeting = '';
     }
     BookEditComponent.prototype.ngOnInit = function () {
         this.getBook(this.route.snapshot.params['id']);
         this.bookForm = this.formBuilder.group({
-            'isbn': [null, _angular_forms__WEBPACK_IMPORTED_MODULE_3__["Validators"].required],
-            'title': [null, _angular_forms__WEBPACK_IMPORTED_MODULE_3__["Validators"].required],
+            'driver': [null, _angular_forms__WEBPACK_IMPORTED_MODULE_3__["Validators"].required],
+            'destination': [null, _angular_forms__WEBPACK_IMPORTED_MODULE_3__["Validators"].required],
             'description': [null, _angular_forms__WEBPACK_IMPORTED_MODULE_3__["Validators"].required],
-            'author': [null, _angular_forms__WEBPACK_IMPORTED_MODULE_3__["Validators"].required],
-            'publisher': [null, _angular_forms__WEBPACK_IMPORTED_MODULE_3__["Validators"].required],
-            'published_year': [null, _angular_forms__WEBPACK_IMPORTED_MODULE_3__["Validators"].required]
+            'amount': [null, _angular_forms__WEBPACK_IMPORTED_MODULE_3__["Validators"].required],
+            'time': [null, _angular_forms__WEBPACK_IMPORTED_MODULE_3__["Validators"].required],
+            'meeting': [null, _angular_forms__WEBPACK_IMPORTED_MODULE_3__["Validators"].required]
         });
     };
     BookEditComponent.prototype.getBook = function (id) {
         var _this = this;
         this.api.getBook(id).subscribe(function (data) {
-            _this.id = data._id;
+            _this.driver = data._id;
             _this.bookForm.setValue({
-                isbn: data.isbn,
-                title: data.title,
+                driver: data.isbn,
+                destination: data.title,
                 description: data.description,
-                author: data.author,
-                publisher: data.publisher,
-                published_year: data.published_year
+                amount: data.author,
+                time: data.publisher,
+                meeting: data.published_year
             });
         });
     };
     BookEditComponent.prototype.onFormSubmit = function (form) {
         var _this = this;
-        this.api.updateBook(this.id, form)
+        this.api.updateBook(this.driver, form)
             .subscribe(function (res) {
             var id = res['_id'];
             _this.router.navigate(['/book-details', id]);
@@ -666,7 +676,7 @@ var BookEditComponent = /** @class */ (function () {
         });
     };
     BookEditComponent.prototype.bookDetails = function () {
-        this.router.navigate(['/book-details', this.id]);
+        this.router.navigate(['/book-details', this.driver]);
     };
     BookEditComponent = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
@@ -677,6 +687,80 @@ var BookEditComponent = /** @class */ (function () {
         __metadata("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_1__["Router"], _angular_router__WEBPACK_IMPORTED_MODULE_1__["ActivatedRoute"], _api_service__WEBPACK_IMPORTED_MODULE_2__["ApiService"], _angular_forms__WEBPACK_IMPORTED_MODULE_3__["FormBuilder"]])
     ], BookEditComponent);
     return BookEditComponent;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/book/book.component.css":
+/*!*****************************************!*\
+  !*** ./src/app/book/book.component.css ***!
+  \*****************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = ".example-container {\r\n  display: flex;\r\n  flex-direction: column;\r\n  max-height: 500px;\r\n  min-width: 300px;\r\n  overflow: auto;\r\n}\r\n\r\n.driver-col {\r\n  flex: 0 0 100px !important;\r\n  white-space: unset !important;\r\n}\r\n\r\n.button-row {\r\n  margin: 10px 0;\r\n  background-color: transparent;\r\n  text-align: center;\r\n}\r\n\r\n.Hello{\r\n  margin: 10px 0;\r\n  background-color: transparent;\r\n  text-align: center;\r\n  color:#b28f3c;\r\n  font-weight: bold;\r\n  font-size: 36px;\r\n}\r\n\r\n#UserTable{\r\n  background-color: white;\r\n  width:50%;\r\n  text-align: center;\r\n  -ms-grid-row-align: center;\r\n      align-self: center;\r\n}\r\n\r\n#TableDiv{\r\n  text-align: center;\r\n}"
+
+/***/ }),
+
+/***/ "./src/app/book/book.component.html":
+/*!******************************************!*\
+  !*** ./src/app/book/book.component.html ***!
+  \******************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<div class=\"logo\"> <img src=\"../../assets/img/logo.png\" alt=\"Logo here\"></div><!--Resize--> \r\n<div class=\"Hello\">\r\n  User List\r\n</div>\r\n<div class=\"button-row\">\r\n  <a mat-raised-button color=\"primary\" [routerLink]=\"['/user']\"><mat-icon>arrow_back</mat-icon></a>\r\n</div>\r\n\r\n<div class=\"example-container mat-elevation-z8\" id='TableDiv'>\r\n  <table id=\"UserTable\" *ngIf = 'users'>\r\n      <tr>\r\n          <th>Email Address</th>\r\n      </tr>\r\n\r\n      <tr *ngFor='let u of users'>\r\n        <td class='driver-col'>{{u.email}}</td>\r\n      </tr>\r\n  </table>\r\n  \r\n</div>\r\n\r\n"
+
+/***/ }),
+
+/***/ "./src/app/book/book.component.ts":
+/*!****************************************!*\
+  !*** ./src/app/book/book.component.ts ***!
+  \****************************************/
+/*! exports provided: ShowUserComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ShowUserComponent", function() { return ShowUserComponent; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _api_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../api.service */ "./src/app/api.service.ts");
+/* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm5/http.js");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+var ShowUserComponent = /** @class */ (function () {
+    function ShowUserComponent(api, http) {
+        this.api = api;
+        this.http = http;
+    }
+    ShowUserComponent.prototype.ngOnInit = function () {
+        var _this = this;
+        this.http.get('/api/users')
+            .subscribe(function (res) {
+            _this.users = res;
+        });
+    };
+    ShowUserComponent = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
+            selector: 'app-book',
+            template: __webpack_require__(/*! ./book.component.html */ "./src/app/book/book.component.html"),
+            styles: [__webpack_require__(/*! ./book.component.css */ "./src/app/book/book.component.css")]
+        }),
+        __metadata("design:paramtypes", [_api_service__WEBPACK_IMPORTED_MODULE_1__["ApiService"], _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpClient"]])
+    ], ShowUserComponent);
+    return ShowUserComponent;
 }());
 
 
@@ -1228,7 +1312,7 @@ var LoginPageModule = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<h1 class=\"header\">Login with Firebase or Social Providers</h1>\r\n<div class=\"container\">\r\n  <div class=\"row\">\r\n    <div class=\"col-md-6 col-md-offset-3\">\r\n      <form [formGroup]=\"loginForm\">\r\n        <div class=\"form-group\">\r\n          <label>Email address</label>\r\n          <input type=\"email\" formControlName=\"email\" class=\"form-control\">\r\n        </div>\r\n        <div class=\"form-group\">\r\n          <label>Password</label>\r\n          <input type=\"password\" class=\"form-control\" formControlName=\"password\">\r\n          <label class=\"error\">{{errorMessage}}</label>\r\n        </div>\r\n        <button type=\"submit\" (click)=\"tryLogin(loginForm.value)\" class=\"btn btn-default\">Login</button>\r\n      </form>\r\n    </div>\r\n  </div>\r\n  <div class=\"row\">\r\n    <div class=\"col-md-4 col-md-offset-4\">\r\n      <button type=\"button\" class=\"btn btn-primary btn-block\" (click)=\"tryFacebookLogin()\">Login with Facebook</button>\r\n    </div>\r\n  </div>\r\n  <div class=\"row\">\r\n    <div class=\"col-md-4 col-md-offset-4\">\r\n      <button type=\"button\" class=\"btn btn-danger btn-block\" (click)=\"tryGoogleLogin()\">Login with Google</button>\r\n    </div>\r\n  </div>\r\n  <div class=\"row\">\r\n    <div class=\"col-md-4 col-md-offset-4\">\r\n      <button type=\"button\" class=\"btn btn-info btn-block\" (click)=\"tryTwitterLogin()\">Login with Twitter</button>\r\n    </div>\r\n  </div>\r\n  <div class=\"row\">\r\n    <div class=\"col-md-4 col-md-offset-4\">\r\n      <p>No account yet? <a [routerLink]=\"['/register']\">Create an account</a></p>\r\n    </div>\r\n  </div>\r\n</div>\r\n"
+module.exports = "<div class=\"logo\"> <img src=\"../../assets/img/logo.png\" alt=\"Logo here\"></div><!--Resize--> \r\n\r\n<div class=\"Hello\">\r\n  Welcome to HU Carpool\r\n</div>\r\n<div class=\"container\">\r\n  <div class=\"row\">\r\n    <div class=\"col-md-6 col-md-offset-3\">\r\n      <form [formGroup]=\"loginForm\" class=\"form-3\">\r\n        <div class=\"form-group\">\r\n          <label>Email address</label>\r\n          <input type=\"email\" formControlName=\"email\" class=\"form-control\" placeholder=\"Enter Email address\">\r\n        </div>\r\n        <div class=\"form-group\">\r\n          <label>Password</label>\r\n          <input type=\"password\" class=\"form-control\" formControlName=\"password\" placeholder=\"Enter Password\">\r\n          <label class=\"error\">{{errorMessage}}</label>\r\n        </div>\r\n        <button type=\"submit\" (click)=\"tryLogin(loginForm.value)\" class=\"btn btn-default\">Login</button>\r\n        <div class=\"row\">\r\n          <div class=\"col-md-4 col-md-offset-4\">\r\n            <p class=\"mylink\">No account yet? <br><a [routerLink]=\"['/register']\">Create an account</a></p>\r\n          </div>\r\n        </div>\r\n      </form>\r\n\r\n    </div>\r\n  </div>\r\n  <div class=\"row\">\r\n    <div class=\"col-md-4 col-md-offset-4\">\r\n      <button type=\"button\" id=\"facebook\" class=\"btn btn-primary btn-block\" (click)=\"tryFacebookLogin()\">Login with Facebook</button>\r\n    </div>\r\n  </div>\r\n  <div class=\"row\">\r\n    <div class=\"col-md-4 col-md-offset-4\">\r\n      <button type=\"button\" id=\"googleplus\" class=\"btn btn-danger btn-block\" (click)=\"tryGoogleLogin()\">Login with Google</button>\r\n    </div>\r\n  </div>\r\n  <div class=\"row\">\r\n    <div class=\"col-md-4 col-md-offset-4\">\r\n      <button type=\"button\" id=\"twitter\" class=\"btn btn-info btn-block\" (click)=\"tryTwitterLogin()\">Login with Twitter</button>\r\n    </div>\r\n  </div>\r\n  \r\n</div>\r\n"
 
 /***/ }),
 
@@ -1331,7 +1415,7 @@ var LoginComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ".header {\n  text-align: center;\n  font-size: 30px;\n  margin-bottom: 40px; }\n\n.row {\n  margin-top: 10px; }\n\n.error {\n  color: red; }\n"
+module.exports = ".header {\n  text-align: center;\n  font-size: 30px;\n  margin-bottom: 40px; }\n\n.row {\n  margin-top: 10px;\n  text-align: center; }\n\n.error {\n  color: red; }\n"
 
 /***/ }),
 
@@ -1342,7 +1426,7 @@ module.exports = ".header {\n  text-align: center;\n  font-size: 30px;\n  margin
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<h1 class=\"header\">Create an account with Firebase or Social Providers</h1>\r\n<div class=\"container\">\r\n  <div class=\"row\">\r\n    <div class=\"col-md-6 col-md-offset-3\">\r\n      <form [formGroup]=\"registerForm\">\r\n        <div class=\"form-group\">\r\n          <label>Email address</label>\r\n          <input type=\"email\" formControlName=\"email\" class=\"form-control\">\r\n        </div>\r\n        <div class=\"form-group\">\r\n          <label>Password</label>\r\n          <input type=\"password\" class=\"form-control\" formControlName=\"password\">\r\n          <label class=\"error\">{{errorMessage}}</label>\r\n          <label class=\"success\">{{successMessage}}</label>\r\n        </div>\r\n        <button type=\"submit\" (click)=\"tryRegister(registerForm.value)\" class=\"btn btn-default\">Register</button>\r\n      </form>\r\n    </div>\r\n  </div>\r\n  <div class=\"row\">\r\n    <div class=\"col-md-4 col-md-offset-4\">\r\n      <button type=\"button\" class=\"btn btn-primary btn-block\" (click)=\"tryFacebookLogin()\">Register with Facebook</button>\r\n    </div>\r\n  </div>\r\n  <div class=\"row\">\r\n    <div class=\"col-md-4 col-md-offset-4\">\r\n      <button type=\"button\" class=\"btn btn-danger btn-block\" (click)=\"tryGoogleLogin()\">Register with Google</button>\r\n    </div>\r\n  </div>\r\n  <div class=\"row\">\r\n    <div class=\"col-md-4 col-md-offset-4\">\r\n      <button type=\"button\" class=\"btn btn-info btn-block\" (click)=\"tryTwitterLogin()\">Register with Twitter</button>\r\n    </div>\r\n  </div>\r\n  <div class=\"row\">\r\n    <div class=\"col-md-4 col-md-offset-4\">\r\n      <p>Already have an account? <a [routerLink]=\"['/login']\">Login</a></p>\r\n    </div>\r\n  </div>\r\n</div>\r\n"
+module.exports = "<div class=\"logo\"> <img src=\"../../assets/img/logo.png\" alt=\"Logo here\"></div><!--Resize--> \r\n\r\n<div class=\"Hello\">\r\n  Welcome to HU Carpool\r\n</div>\r\n<div class=\"container\">\r\n  <div class=\"row\">\r\n    <div class=\"col-md-6 col-md-offset-3\">\r\n      <form [formGroup]=\"registerForm\" class=\"form-3\">\r\n        <div class=\"form-group\">\r\n          <label>Email address</label>\r\n          <input type=\"email\" formControlName=\"email\" class=\"form-control\" placeholder=\"Enter Email address\">\r\n        </div>\r\n        <div class=\"form-group\">\r\n          <label>Password</label>\r\n          <input type=\"password\" class=\"form-control\" formControlName=\"password\" placeholder=\"Enter Password\">\r\n          <label class=\"error\">{{errorMessage}}</label>\r\n          <label class=\"success\">{{successMessage}}</label>\r\n        </div>\r\n        <button type=\"submit\" (click)=\"tryRegister(registerForm.value)\" class=\"btn btn-default\">Register</button>\r\n        <div class=\"row\">\r\n          <div class=\"col-md-4 col-md-offset-4\">\r\n            <p class=\"mylink\">Already have an account? <br><a [routerLink]=\"['/login']\">Login</a></p>\r\n          </div>\r\n        </div>\r\n      </form>\r\n    </div>\r\n  </div>\r\n  <div class=\"row\">\r\n    <div class=\"col-md-4 col-md-offset-4\">\r\n      <button type=\"button\" id=\"facebook\" class=\"btn btn-primary btn-block\" (click)=\"tryFacebookLogin()\">Register with Facebook</button>\r\n    </div>\r\n  </div>\r\n  <div class=\"row\">\r\n    <div class=\"col-md-4 col-md-offset-4\">\r\n      <button type=\"button\" id=\"googleplus\" class=\"btn btn-danger btn-block\" (click)=\"tryGoogleLogin()\">Register with Google</button>\r\n    </div>\r\n  </div>\r\n  <div class=\"row\">\r\n    <div class=\"col-md-4 col-md-offset-4\">\r\n      <button type=\"button\" id=\"twitter\" class=\"btn btn-info btn-block\" (click)=\"tryTwitterLogin()\">Register with Twitter</button>\r\n    </div>\r\n  </div>\r\n  \r\n</div>\r\n"
 
 /***/ }),
 
@@ -1353,7 +1437,7 @@ module.exports = "<h1 class=\"header\">Create an account with Firebase or Social
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ".header {\n  text-align: center;\n  font-size: 30px;\n  margin-bottom: 40px; }\n\n.row {\n  margin-top: 10px; }\n\n.error {\n  color: red; }\n\n.success {\n  color: green; }\n"
+module.exports = ".header {\n  text-align: center;\n  font-size: 30px;\n  margin-bottom: 40px; }\n\n.row {\n  margin-top: 10px;\n  text-align: center; }\n\n.error {\n  color: red; }\n\n.success {\n  color: green; }\n"
 
 /***/ }),
 
@@ -1457,7 +1541,7 @@ var RegisterComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"logo\"> <img src=\"../../assets/img/logo.png\" alt=\"Logo here\"></div><!--Resize--> \r\n<div class=\"Hello\">\r\n  Welcome to HU Carpool\r\n</div>\r\n<div class=\"button-row\">\r\n  <nav class=\"navbar navbar-default navbar-static-top navbar-inverse\">\r\n    <div class=\"container\">\r\n      <a (click)=\"logout()\" class=\"navbar-text navbar-right navbar-link\">Logout</a>\r\n    </div>\r\n  </nav>\r\n</div>\r\n<div class=\"button-row\">\r\n  <a mat-raised-button color=\"primary\" [routerLink]=\"['/book-create']\"><mat-icon>add</mat-icon></a>\r\n</div>\r\n\r\n<div class=\"Hello\">Ride List</div>\r\n<div class=\"example-container mat-elevation-z8\">\r\n  <table mat-table #table [dataSource]=\"dataSource\">\r\n\r\n    <!--- Note that these columns can be defined in any order.\r\n          The actual rendered columns are set as a property on the row definition\" -->\r\n\r\n    <!-- Title Column -->\r\n    <ng-container matColumnDef=\"isbn\">\r\n      <th mat-header-cell *matHeaderCellDef> Driver name </th>\r\n      <td mat-cell *matCellDef=\"let element\" class=\"isbn-col\"> {{element.isbn}} </td>\r\n    </ng-container>\r\n\r\n    <!-- Title Column -->\r\n    <ng-container matColumnDef=\"title\">\r\n      <th mat-header-cell *matHeaderCellDef> Destination </th>\r\n      <td mat-cell *matCellDef=\"let element\"> {{element.title}} </td>\r\n    </ng-container>\r\n\r\n    <!-- Author Column -->\r\n    <ng-container matColumnDef=\"author\">\r\n      <th mat-header-cell *matHeaderCellDef> Estimated amount </th>\r\n      <td mat-cell *matCellDef=\"let element\"> {{element.author}} </td>\r\n    </ng-container>\r\n\r\n    <tr mat-header-row *matHeaderRowDef=\"displayedColumns\"></tr>\r\n    <tr mat-row *matRowDef=\"let row; columns: displayedColumns;\" [routerLink]=\"['/book-details/', row._id]\"></tr>\r\n  </table>\r\n  \r\n</div>\r\n"
+module.exports = "<div class=\"logo\"> <img src=\"../../assets/img/logo.png\" alt=\"Logo here\"></div><!--Resize--> \r\n<div class=\"Hello\">\r\n  Welcome to HU Carpool\r\n</div>\r\n<div class=\"button-row\">\r\n  <nav class=\"navbar navbar-default navbar-static-top navbar-inverse\">\r\n    <div class=\"container\">\r\n      <a (click)=\"logout()\" id=\"LinkBut\" class=\"navbar-text navbar-right navbar-link\">Logout</a>\r\n    </div>\r\n    <br>\r\n    <br>\r\n    <div class=\"container\">\r\n      <a (click)=\"showUsers()\" id=\"LinkBut\" class=\"navbar-text navbar-right navbar-link\">View Registered Users</a>\r\n    </div>\r\n  </nav>\r\n</div>\r\n<br>\r\n<div class=\"button-row\">\r\n  <a mat-raised-button color=\"primary\" [routerLink]=\"['/book-create']\"><mat-icon>add</mat-icon></a>\r\n</div>\r\n\r\n<div class=\"Hello\">Ride List</div>\r\n<div class=\"example-container mat-elevation-z8\">\r\n  <table mat-table #table [dataSource]=\"dataSource\">\r\n\r\n    <!--- Note that these columns can be defined in any order.\r\n          The actual rendered columns are set as a property on the row definition\" -->\r\n\r\n    <!-- Driver Column -->\r\n    <ng-container matColumnDef=\"driver\">\r\n      <th mat-header-cell *matHeaderCellDef> Driver name </th>\r\n      <td mat-cell *matCellDef=\"let element\" class=\"driver-col\"> {{element.driver}} </td>\r\n    </ng-container>\r\n\r\n    <!-- Destination Column -->\r\n    <ng-container matColumnDef=\"destination\">\r\n      <th mat-header-cell *matHeaderCellDef> Destination </th>\r\n      <td mat-cell *matCellDef=\"let element\"> {{element.destination}} </td>\r\n    </ng-container>\r\n\r\n    <!-- Estimated Amount Column -->\r\n    <ng-container matColumnDef=\"amount\">\r\n      <th mat-header-cell *matHeaderCellDef> Estimated amount </th>\r\n      <td mat-cell *matCellDef=\"let element\"> {{element.amount}} </td>\r\n    </ng-container>\r\n\r\n    <tr mat-header-row *matHeaderRowDef=\"displayedColumns\"></tr>\r\n    <tr mat-row *matRowDef=\"let row; columns: displayedColumns;\" [routerLink]=\"['/book-details/', row._id]\"></tr>\r\n  </table>\r\n  \r\n</div>\r\n"
 
 /***/ }),
 
@@ -1475,9 +1559,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
 /* harmony import */ var _api_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../api.service */ "./src/app/api.service.ts");
 /* harmony import */ var _angular_cdk_collections__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/cdk/collections */ "./node_modules/@angular/cdk/esm5/collections.es5.js");
-/* harmony import */ var _core_user_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../core/user.service */ "./src/app/core/user.service.ts");
-/* harmony import */ var _core_auth_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../core/auth.service */ "./src/app/core/auth.service.ts");
-/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
+/* harmony import */ var _core_user_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../core/user.service */ "./src/app/core/user.service.ts");
+/* harmony import */ var _core_auth_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../core/auth.service */ "./src/app/core/auth.service.ts");
 /* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @angular/common */ "./node_modules/@angular/common/fesm5/common.js");
 /* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm5/forms.js");
 /* harmony import */ var _core_user_model__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../core/user.model */ "./src/app/core/user.model.ts");
@@ -1509,15 +1593,17 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 
 
 
+
 var BookComponent = /** @class */ (function () {
-    function BookComponent(api, userService, authService, route, location, fb) {
+    function BookComponent(api, userService, authService, route, router, location, fb) {
         this.api = api;
         this.userService = userService;
         this.authService = authService;
         this.route = route;
+        this.router = router;
         this.location = location;
         this.fb = fb;
-        this.displayedColumns = ['isbn', 'title', 'author'];
+        this.displayedColumns = ['driver', 'destination', 'amount'];
         this.dataSource = new BookDataSource(this.api);
         this.user = new _core_user_model__WEBPACK_IMPORTED_MODULE_8__["FirebaseUserModel"]();
     }
@@ -1535,10 +1621,13 @@ var BookComponent = /** @class */ (function () {
         var _this = this;
         this.authService.doLogout()
             .then(function (res) {
-            _this.location.back();
+            _this.router.navigate(['/login']);
         }, function (error) {
             console.log("Logout error", error);
         });
+    };
+    BookComponent.prototype.showUsers = function () {
+        this.router.navigate(['/books']);
     };
     BookComponent = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
@@ -1547,9 +1636,10 @@ var BookComponent = /** @class */ (function () {
             styles: [__webpack_require__(/*! ./user.scss */ "./src/app/user/user.scss")]
         }),
         __metadata("design:paramtypes", [_api_service__WEBPACK_IMPORTED_MODULE_1__["ApiService"],
-            _core_user_service__WEBPACK_IMPORTED_MODULE_3__["UserService"],
-            _core_auth_service__WEBPACK_IMPORTED_MODULE_4__["AuthService"],
-            _angular_router__WEBPACK_IMPORTED_MODULE_5__["ActivatedRoute"],
+            _core_user_service__WEBPACK_IMPORTED_MODULE_4__["UserService"],
+            _core_auth_service__WEBPACK_IMPORTED_MODULE_5__["AuthService"],
+            _angular_router__WEBPACK_IMPORTED_MODULE_3__["ActivatedRoute"],
+            _angular_router__WEBPACK_IMPORTED_MODULE_3__["Router"],
             _angular_common__WEBPACK_IMPORTED_MODULE_6__["Location"],
             _angular_forms__WEBPACK_IMPORTED_MODULE_7__["FormBuilder"]])
     ], BookComponent);
@@ -1649,7 +1739,7 @@ var UserResolver = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ".example-container {\n  display: flex;\n  flex-direction: column;\n  max-height: 500px;\n  min-width: 300px;\n  overflow: auto; }\n\n.isbn-col {\n  flex: 0 0 100px !important;\n  white-space: unset !important; }\n\n.button-row {\n  margin: 10px 0;\n  background-color: transparent;\n  text-align: center; }\n\n.Hello {\n  margin: 10px 0;\n  background-color: transparent;\n  text-align: center;\n  color: #b28f3c;\n  font-weight: bold;\n  font-size: 36px; }\n"
+module.exports = ".example-container {\n  display: flex;\n  flex-direction: column;\n  max-height: 500px;\n  min-width: 300px;\n  overflow: auto; }\n\n.driver-col {\n  flex: 0 0 100px !important;\n  white-space: unset !important; }\n\n.button-row {\n  margin: 10px 0;\n  background-color: transparent;\n  text-align: center; }\n\n.Hello {\n  margin: 10px 0;\n  background-color: transparent;\n  text-align: center;\n  color: #b28f3c;\n  font-weight: bold;\n  font-size: 36px; }\n"
 
 /***/ }),
 
