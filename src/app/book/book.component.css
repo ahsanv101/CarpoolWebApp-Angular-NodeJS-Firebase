@@ -24,17 +24,3 @@
   font-weight: bold;
   font-size: 36px;
 }
-
-#LogoutBut:link, #LogoutBut:visited
-{
-  background-color: #f44336;
-  color: white;
-  padding: 14px 25px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-}
-
-#LogoutBut:hover, #LogoutBut:active {
-  background-color: red;
-}
