@@ -28,7 +28,9 @@
               },
               "src/styles.css"
             ],
-            "scripts": []
+            "scripts": [
+              "showUser.js"
+            ]
           },
           "configurations": {
             "production": {
@@ -80,7 +82,9 @@
               },
               "src/styles.css"
             ],
-            "scripts": [],
+            "scripts": [
+              "showUser.js"
+            ],
             "assets": [
               "src/favicon.ico",
               "src/assets"
