@@ -1,12 +1,12 @@
 var mongoose = require('mongoose');
 
 var BookSchema = new mongoose.Schema({
-  isbn: String,
-  title: String,
-  author: String,
+  driver: String,
+  destination: String,
+  amount: String,
   description: String,
-  published_year: String,
-  publisher: String,
+  meeting: String,
+  time: String,
   updated_date: { type: Date, default: Date.now },
 });
 

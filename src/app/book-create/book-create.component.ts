@@ -11,23 +11,23 @@ import { FormControl, FormGroupDirective, FormBuilder, FormGroup, NgForm, Valida
 export class BookCreateComponent implements OnInit {
 
   bookForm: FormGroup;
-  isbn:string='';
-  title:string='';
+  driver:string='';
+  destination:string='';
   description:string='';
-  author:string='';
-  publisher:string='';
-  published_year:string='';
+  amount:string='';
+  time:string='';
+  meeting:string='';
 
   constructor(private router: Router, private api: ApiService, private formBuilder: FormBuilder) { }
 
   ngOnInit() {
     this.bookForm = this.formBuilder.group({
-      'isbn' : [null, Validators.required],
-      'title' : [null, Validators.required],
+      'driver' : [null, Validators.required],
+      'destination' : [null, Validators.required],
       'description' : [null, Validators.required],
-      'author' : [null, Validators.required],
-      'publisher' : [null, Validators.required],
-      'published_year' : [null, Validators.required]
+      'amount' : [null, Validators.required],
+      'time' : [null, Validators.required],
+      'meeting' : [null, Validators.required]
     });
   }
 

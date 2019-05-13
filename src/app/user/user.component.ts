@@ -21,7 +21,7 @@ import { FirebaseUserModel } from '../core/user.model';
 export class BookComponent implements OnInit {
 
   books: any;
-  displayedColumns = ['isbn', 'title', 'author'];
+  displayedColumns = ['driver', 'destination', 'amount'];
   dataSource = new BookDataSource(this.api);
   user: FirebaseUserModel = new FirebaseUserModel();
   profileForm: FormGroup;
