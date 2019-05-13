@@ -10,31 +10,15 @@ import { HttpClient } from '@angular/common/http';
   styleUrls: ['./book.component.css']
 })
 export class ShowUserComponent implements OnInit {
-  books: any;
-  displayedColumns = ['isbn', 'title', 'author'];
-  dataSource = new UserDataSource(this.api);
+  users: any;
 
   constructor(private api: ApiService, private http: HttpClient) { }
 
   ngOnInit() {
     this.http.get('/api/users')
       .subscribe(res => {
-        this.books = res;
+        this.users = res;
       });
   }
 
-}
-
-export class UserDataSource extends DataSource<any> {
-  constructor(private api: ApiService) {
-    super()
-  }
-
-  connect() {
-    return this.api.getUsers();
-  }
-
-  disconnect() {
-
-  }
 }

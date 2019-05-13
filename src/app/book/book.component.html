@@ -13,13 +13,13 @@
   <a mat-raised-button color="primary" [routerLink]="['/user']"><mat-icon>arrow_back</mat-icon></a>
 </div>
 <div class="example-container mat-elevation-z8">
-  <table *ngIf = 'books'>
+  <table *ngIf = 'users'>
       <tr>
           <th>Email Address</th>
       </tr>
 
-      <tr *ngFor='let user of books'>
-        <td>{{user.email}}</td>
+      <tr *ngFor='let u of users'>
+        <td>{{u.email}}</td>
       </tr>
   </table>
   
