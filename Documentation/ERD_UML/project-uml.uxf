@@ -1,0 +1,207 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="14.3.0">
+  <zoom_level>8</zoom_level>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>424</x>
+      <y>32</y>
+      <w>168</w>
+      <h>168</h>
+    </coordinates>
+    <panel_attributes>User
+--
+-userID: int
+-password: string
+-firstName: string
+-lastName: string
+-contactNum: int
+-emailID: string
+--
++signIn()
++signOut()
++viewProfile()
++editProfile()</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>240</x>
+      <y>288</y>
+      <w>168</w>
+      <h>112</h>
+    </coordinates>
+    <panel_attributes>Rider
+--
+
+--
++requestRide()
++editRequest()
++joinTrip()
++confirmTrip()
++searchTrips()</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>448</x>
+      <y>288</y>
+      <w>168</w>
+      <h>112</h>
+    </coordinates>
+    <panel_attributes>Driver
+--
+
+--
++createTrip()
++editTrip()
++approveRider()
++acceptRequest()</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>312</x>
+      <y>192</y>
+      <w>200</w>
+      <h>112</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>230.0;10.0;230.0;60.0;10.0;60.0;10.0;120.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>488</x>
+      <y>192</y>
+      <w>64</w>
+      <h>112</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;60.0;60.0;60.0;60.0;120.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>456</x>
+      <y>456</y>
+      <w>168</w>
+      <h>96</h>
+    </coordinates>
+    <panel_attributes>Car
+--
+-carID: int
+-make: string
+-model: string
+-numPlate: string
+--</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>712</x>
+      <y>32</y>
+      <w>168</w>
+      <h>144</h>
+    </coordinates>
+    <panel_attributes>Trip
+--
+-tripID: int
+-source: string
+-destination: string
+-startTime: int
+-fromUserID: int
+-numSeats: int
+-fare: int
+--
++viewRiders()
++viewDriver()</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>168</x>
+      <y>32</y>
+      <w>168</w>
+      <h>128</h>
+    </coordinates>
+    <panel_attributes>Login
+--
+
+--
++login()
++register()</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>328</x>
+      <y>88</y>
+      <w>112</w>
+      <h>32</h>
+    </coordinates>
+    <panel_attributes/>
+    <additional_attributes>10.0;20.0;120.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>584</x>
+      <y>88</y>
+      <w>144</w>
+      <h>32</h>
+    </coordinates>
+    <panel_attributes>m2=0..n</panel_attributes>
+    <additional_attributes>10.0;10.0;160.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>528</x>
+      <y>392</y>
+      <w>40</w>
+      <h>80</h>
+    </coordinates>
+    <panel_attributes>m2=1..n</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;80.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>712</x>
+      <y>208</y>
+      <w>168</w>
+      <h>176</h>
+    </coordinates>
+    <panel_attributes>Request
+--
+-requestID: int
+-fromUserID: int
+-source: string
+-destination: string
+-startTime: int
+-numSeatsRequired: int
+-requestStatus: string
+--
++changeRequestStatus()
++viewRequester()</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>584</x>
+      <y>136</y>
+      <w>144</w>
+      <h>136</h>
+    </coordinates>
+    <panel_attributes>m2=0..n</panel_attributes>
+    <additional_attributes>10.0;10.0;100.0;10.0;100.0;140.0;160.0;140.0</additional_attributes>
+  </element>
+</diagram>
