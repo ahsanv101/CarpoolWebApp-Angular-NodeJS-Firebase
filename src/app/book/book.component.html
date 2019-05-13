@@ -5,13 +5,6 @@
 <div class="button-row">
   <a mat-raised-button color="primary" [routerLink]="['/user']"><mat-icon>arrow_back</mat-icon></a>
 </div>
-<div class="button-row">
-  <nav class="navbar navbar-default navbar-static-top navbar-inverse">
-    <div class="container">
-      <a (click)="logout()" class="navbar-text navbar-right navbar-link">Logout</a>
-    </div>
-  </nav>
-</div>
 
 <div class="example-container mat-elevation-z8">
   <table *ngIf = 'users'>

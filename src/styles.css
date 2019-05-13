@@ -175,3 +175,17 @@ button#googleplus {
   border-color: #51cbee;
   outline: none; /* Remove Chrome outline */
 }
+
+#LinkBut {
+  background-color: #540250;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 25%;
+}
+
+#LinkBut:hover, #LinkBut:active{
+    background-color:rgb(100, 6, 100);
+}

@@ -5,13 +5,16 @@
 <div class="button-row">
   <nav class="navbar navbar-default navbar-static-top navbar-inverse">
     <div class="container">
-      <a (click)="logout()" class="navbar-text navbar-right navbar-link">Logout</a>
+      <a (click)="logout()" id="LinkBut" class="navbar-text navbar-right navbar-link">Logout</a>
     </div>
+    <br>
+    <br>
     <div class="container">
-      <a (click)="showUsers()" class="navbar-text navbar-right navbar-link">View Registered Users</a>
+      <a (click)="showUsers()" id="LinkBut" class="navbar-text navbar-right navbar-link">View Registered Users</a>
     </div>
   </nav>
 </div>
+<br>
 <div class="button-row">
   <a mat-raised-button color="primary" [routerLink]="['/book-create']"><mat-icon>add</mat-icon></a>
 </div>
