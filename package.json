@@ -28,6 +28,7 @@
     "express": "^4.16.3",
     "firebase": "^6.0.2",
     "firebase-admin": "^7.3.0",
+    "firebase-auth": "^0.1.2",
     "firebase-tools": "^6.9.2",
     "http-errors": "^1.6.3",
     "mongoose": "^5.1.1",

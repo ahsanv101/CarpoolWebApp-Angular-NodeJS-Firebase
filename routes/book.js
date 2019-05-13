@@ -13,25 +13,21 @@ admin.initializeApp({
 
 
   /* GET USERS */
-router.get('/users', function(req, res) {
-  listAllUsers(null);
-  function listAllUsers(nextPageToken) {
-    // List batch of users, 1000 at a time.
-    admin.auth().listUsers(1000, nextPageToken)
-        .then(function(listUsersResult) {
+router.get('/users', function(req, res, next) {
+  var allUsers = [];
+  return admin.auth().listUsers()
+      .then(function(listUsersResult) {
+        console.log('getting each user record');
         listUsersResult.users.forEach(function(userRecord) {
-            res.send('user', userRecord.toJSON());
+          var userData = userRecord.toJSON();
+          allUsers.push(userData);
         });
-        if (listUsersResult.pageToken) {
-            // List next batch of users.
-            listAllUsers(listUsersResult.pageToken);
-        }
-        })
-        .catch(function(error) {
-        res.send('Error listing users:', error);
-    });
-    }
-})   
+        res.status(200).send(JSON.stringify(allUsers));
+      })
+      .catch(function(error) {
+      res.send('Error listing users:', error);
+      });
+});
   
 /* GET ALL BOOKS */
 router.get('/', function(req, res, next) {

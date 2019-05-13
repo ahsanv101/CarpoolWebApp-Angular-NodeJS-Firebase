@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ApiService } from '../api.service';
 import { DataSource } from '@angular/cdk/collections';
 import { Observable } from 'rxjs';
-// import { listAllUsers } from '../../../showUser'
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-book',
@@ -10,26 +10,28 @@ import { Observable } from 'rxjs';
   styleUrls: ['./book.component.css']
 })
 export class ShowUserComponent implements OnInit {
-  item: any;
   books: any;
   displayedColumns = ['isbn', 'title', 'author'];
-  dataSource = new BookDataSource(this.api);
+  dataSource = new UserDataSource(this.api);
 
-  constructor(private api: ApiService) { }
+  constructor(private api: ApiService, private http: HttpClient) { }
 
   ngOnInit() {
-    this.api.getUsers();
+    this.http.get('/api/users')
+      .subscribe(res => {
+        this.books = res;
+      });
   }
 
 }
 
-export class BookDataSource extends DataSource<any> {
+export class UserDataSource extends DataSource<any> {
   constructor(private api: ApiService) {
     super()
   }
 
   connect() {
-    return this.api.getBooks();
+    return this.api.getUsers();
   }
 
   disconnect() {

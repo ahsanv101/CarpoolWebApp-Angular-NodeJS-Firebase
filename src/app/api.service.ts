@@ -44,8 +44,10 @@ export class ApiService {
   }
 
   getUsers(): Observable<any> {
+    console.log('in api.service');
     const url = `${apiUrl}/users`;
     return this.http.get(url, httpOptions).pipe(
+      map(this.extractData),
       catchError(this.handleError)
     );
   }
