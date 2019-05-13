@@ -4,6 +4,8 @@ var path = require('path');
 var favicon = require('serve-favicon');
 var logger = require('morgan');
 
+const bodyParser = require('body-parser');
+
 var mongoose = require('mongoose');
 mongoose.connect('mongodb://localhost/mean-angular6')
   .then(() =>  console.log('connection succesful'))
@@ -12,6 +14,8 @@ mongoose.connect('mongodb://localhost/mean-angular6')
 var apiRouter = require('./routes/book');
 
 var app = express();
+
+app.use(bodyParser.json());
 
 app.use(logger('dev'));
 app.use(express.json());

@@ -43,6 +43,13 @@ export class ApiService {
     });
   }
 
+  getUsers(): Observable<any> {
+    const url = `${apiUrl}/users`;
+    return this.http.get(url, httpOptions).pipe(
+      catchError(this.handleError)
+    );
+  }
+
   getBooks(): Observable<any> {
     return this.http.get(apiUrl, httpOptions).pipe(
       map(this.extractData),

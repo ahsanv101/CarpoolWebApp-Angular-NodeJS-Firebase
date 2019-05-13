@@ -2,8 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ApiService } from '../api.service';
 import { DataSource } from '@angular/cdk/collections';
 import { Observable } from 'rxjs';
-
-declare function listAllUsers(nextPageToken: any): any;
+// import { listAllUsers } from '../../../showUser'
 
 @Component({
   selector: 'app-book',
@@ -19,16 +18,7 @@ export class ShowUserComponent implements OnInit {
   constructor(private api: ApiService) { }
 
   ngOnInit() {
-    listAllUsers(null);
-    // this.item = new listAllUsers(null);
-    // console.log(this.item);
-    // this.api.getBooks()
-    //   .subscribe(res => {
-    //     console.log(res);
-    //     this.books = res;
-    //   }, err => {
-    //     console.log(err);
-    //   });
+    this.api.getUsers();
   }
 
 }
