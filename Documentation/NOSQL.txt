@@ -1,0 +1,58 @@
+in order to get queries we set up our server using these get and post http calls for our NOSQL
+
+  /* GET RIDES*/
+router.get('/users', function(req, res, next) {
+  var allUsers = [];
+  return admin.auth().listUsers()
+      .then(function(listUsersResult) {
+        console.log('getting each user record');
+        listUsersResult.users.forEach(function(userRecord) {
+          var userData = userRecord.toJSON();
+          allUsers.push(userData);
+        });
+        res.status(200).send(JSON.stringify(allUsers));
+      })
+      .catch(function(error) {
+      res.send('Error listing users:', error);
+      });
+});
+  
+/* GET ALL RIDES
+router.get('/', function(req, res, next) {
+  Book.find(function (err, products) {
+    if (err) return next(err);
+    res.json(products);
+  });
+});
+
+/* GET SINGLE RIDES BY ID */
+router.get('/:id', function(req, res, next) {
+  Book.findById(req.params.id, function (err, post) {
+    if (err) return next(err);
+    res.json(post);
+  });
+});
+
+/* SAVE RIDE*/
+router.post('/', function(req, res, next) {
+  Book.create(req.body, function (err, post) {
+    if (err) return next(err);
+    res.json(post);
+  });
+});
+
+/* UPDATE RIDE*/
+router.put('/:id', function(req, res, next) {
+  Book.findByIdAndUpdate(req.params.id, req.body, function (err, post) {
+    if (err) return next(err);
+    res.json(post);
+  });
+});
+
+/* DELETE RIDE*/
+router.delete('/:id', function(req, res, next) {
+  Book.findByIdAndRemove(req.params.id, req.body, function (err, post) {
+    if (err) return next(err);
+    res.json(post);
+  });
+});

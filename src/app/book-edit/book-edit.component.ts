@@ -11,44 +11,43 @@ import { FormControl, FormGroupDirective, FormBuilder, FormGroup, NgForm, Valida
 export class BookEditComponent implements OnInit {
 
   bookForm: FormGroup;
-  id:string = '';
-  isbn:string = '';
-  title:string = '';
-  description:string = '';
-  author:string = '';
-  publisher:string = '';
-  published_year:string = '';
+  driver:string='';
+  destination:string='';
+  description:string='';
+  amount:string='';
+  time:string='';
+  meeting:string='';
 
   constructor(private router: Router, private route: ActivatedRoute, private api: ApiService, private formBuilder: FormBuilder) { }
 
   ngOnInit() {
     this.getBook(this.route.snapshot.params['id']);
     this.bookForm = this.formBuilder.group({
-      'isbn' : [null, Validators.required],
-      'title' : [null, Validators.required],
+      'driver' : [null, Validators.required],
+      'destination' : [null, Validators.required],
       'description' : [null, Validators.required],
-      'author' : [null, Validators.required],
-      'publisher' : [null, Validators.required],
-      'published_year' : [null, Validators.required]
+      'amount' : [null, Validators.required],
+      'time' : [null, Validators.required],
+      'meeting' : [null, Validators.required]
     });
   }
 
   getBook(id) {
     this.api.getBook(id).subscribe(data => {
-      this.id = data._id;
+      this.driver = data._id;
       this.bookForm.setValue({
-        isbn: data.isbn,
-        title: data.title,
+        driver: data.isbn,
+        destination: data.title,
         description: data.description,
-        author: data.author,
-        publisher: data.publisher,
-        published_year: data.published_year
+        amount: data.author,
+        time: data.publisher,
+        meeting: data.published_year
       });
     });
   }
 
   onFormSubmit(form:NgForm) {
-    this.api.updateBook(this.id, form)
+    this.api.updateBook(this.driver, form)
       .subscribe(res => {
           let id = res['_id'];
           this.router.navigate(['/book-details', id]);
@@ -59,6 +58,6 @@ export class BookEditComponent implements OnInit {
   }
 
   bookDetails() {
-    this.router.navigate(['/book-details', this.id]);
+    this.router.navigate(['/book-details', this.driver]);
   }
 }
