@@ -6,7 +6,7 @@
   overflow: auto;
 }
 
-.isbn-col {
+.driver-col {
   flex: 0 0 100px !important;
   white-space: unset !important;
 }
@@ -27,4 +27,11 @@
 
 #UserTable{
   background-color: white;
+  width:50%;
+  text-align: center;
+  align-self: center;
+}
+
+#TableDiv{
+  text-align: center;
 }

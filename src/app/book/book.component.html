@@ -6,14 +6,14 @@
   <a mat-raised-button color="primary" [routerLink]="['/user']"><mat-icon>arrow_back</mat-icon></a>
 </div>
 
-<div class="example-container mat-elevation-z8">
+<div class="example-container mat-elevation-z8" id='TableDiv'>
   <table id="UserTable" *ngIf = 'users'>
       <tr>
           <th>Email Address</th>
       </tr>
 
       <tr *ngFor='let u of users'>
-        <td>{{u.email}}</td>
+        <td class='driver-col'>{{u.email}}</td>
       </tr>
   </table>
   
