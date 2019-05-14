@@ -1,12 +1,14 @@
 # HU Carpool App
-This source code is part of [MEAN Stack Angular 6 CRUD Web Application](https://www.djamware.com/post/5b00bb9180aca726dee1fd6d/mean-stack-angular-6-crud-web-application) tutorial.
-
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 6.0.1.
 
 ## How to run
-To run UI of this app:
+To run this app:
 
-Before running this app, please make sure that you have NodeJS, Angular6 and MongodB installed.
+Before running this app, please make sure that you have these installed and set up:
+NodeJS(https://nodejs.org/en/download/)
+Angular6(https://angular.io/guide/quickstart)
+MongodB(https://docs.mongodb.com/manual/installation/)
+
 
 1. Git clone and open folder.
 2. Open terminal and write "npm install".
