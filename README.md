@@ -6,7 +6,9 @@ To run this app:
 
 Before running this app, please make sure that you have these installed and set up:
 NodeJS(https://nodejs.org/en/download/)
+
 Angular6(https://angular.io/guide/quickstart)
+
 MongodB(https://docs.mongodb.com/manual/installation/)
 
 
